@@ -46,7 +46,6 @@ group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
 end
-
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'faker'

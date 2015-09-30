@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 <% provide(:title, 'Home') %>  
 <div class="center jumbotron">
-    <h1>Welcome to the E learning system application</h1>
+    <h1>Welcome to the ELS application</h1>
 
     <h2>
-      This is the home page for the ELS application.
+      This is the home page for the E learning system application.
     </h2>
 
     <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
 </div>
 
+=======
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+>>>>>>> user signin signout
