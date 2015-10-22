@@ -1,5 +1,12 @@
 class LessonsController < ApplicationController
   before_action :logged_in_user
+
+  def index
+    respond_to do |format|
+      format.csv { send_data Lesson.all.to_csv }
+    end
+  end
+
   def show
     @lesson = Lesson.find params[:id]
   end

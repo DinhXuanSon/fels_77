@@ -3,6 +3,10 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.paginate page: params[:page]
+    respond_to do |format|
+      format.html
+      format.csv { send_data Category.all.to_csv }
+    end
   end
 
   def show

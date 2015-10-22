@@ -28,7 +28,7 @@ followers.each { |follower| follower.follow(user) }
   Category.create(name: name, content: content)
 end
 
-100000.times do |n|
+100.times do |n|
   content_jp  = Faker::Lorem.word
   word = Word.create(content_jp: content_jp, category_id: Category.all[(0..11).to_a.shuffle.first].id)
   answer_1 = Faker::Lorem.word

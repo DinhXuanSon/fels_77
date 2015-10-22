@@ -2,7 +2,13 @@ class RelationshipsController < ApplicationController
   before_action :logged_in_user
 
   def index
-    send params[:option]
+    if params[:option].nil?
+      respond_to do |format|
+        format.csv { send_data Relationship.all.to_csv }
+      end
+    else 
+      send params[:option]
+    end
   end
 
   def create

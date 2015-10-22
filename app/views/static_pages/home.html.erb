@@ -14,12 +14,22 @@
       <%= link_to t(:Categories), admin_categories_path, class: "btn btn-lg btn-primary" %>
       <%= link_to t(:Lessons), admin_lessons_path, class: "btn btn-lg btn-primary" %>
       <%= link_to t(:Result), admin_results_path, class: "btn btn-lg btn-primary" %>
+
+      <p>
+        Download:
+        <%= link_to "User table : CSV", users_path(format: "csv") %>
+        <%= link_to "Word table : CSV", words_path(format: "csv") %> </br>
+        <%= link_to "User_word table : CSV", user_words_path(format: "csv") %> 
+        <%= link_to "Relationship table : CSV", relationships_path(format: "csv") %> </br>
+        <%= link_to "Lesson table : CSV", lessons_path(format: "csv") %> 
+        <%= link_to "Category table : CSV", categories_path(format: "csv") %> </br>
+      </p>
+
     <% else %>
       <%= link_to t(:word_list), words_path, class: "btn btn-lg btn-primary" %>
       <%= link_to t(:Categories), categories_path, class: "btn btn-lg btn-primary" %>
       <%= link_to t(:Lessons), lessons_path, class: "btn btn-lg btn-primary" %>
       <%= link_to t(:Result),  results_path, class: "btn btn-lg btn-primary" %>
-
     <% end %>
     </div>
 <% else %>

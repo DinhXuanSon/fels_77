@@ -15,6 +15,12 @@ class UserWordsController < ApplicationController
     flash[:success] = t :unlearned
     redirect_to words_path
   end
+  def index
+    respond_to do |format|
+      format.html
+      format.csv { send_data UserWord.all.to_csv }
+    end
+  end
 
   private
   def user_word_params

@@ -12,6 +12,16 @@ class Lesson < ActiveRecord::Base
   scope :filter_lesson, ->(user_id){where "user_id IN (#{followed_ids}) 
                                 OR user_id = :user_id", user_id: user_id}
   
+  class << self
+    def to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << column_names
+        all.each do |product|
+          csv << product.attributes.values_at(*column_names)
+        end
+      end
+    end
+  end
   private
   def create_word_lessons
     word_ids = category.words.order("RANDOM()").limit(20).map(&:id)

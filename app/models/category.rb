@@ -9,5 +9,14 @@ class Category < ActiveRecord::Base
     def options_for_select
       order('LOWER(name)').map { |e| [e.name, e.id] }
     end
+
+    def to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << column_names
+        all.each do |product|
+          csv << product.attributes.values_at(*column_names)
+        end
+      end
+    end
   end
 end

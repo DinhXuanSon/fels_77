@@ -13,6 +13,7 @@ class WordsController < ApplicationController
     respond_to do |format|
       format.html
       format.js
+      format.csv { send_data Word.all.to_csv }
     end
   end
 

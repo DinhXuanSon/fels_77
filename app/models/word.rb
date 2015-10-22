@@ -15,4 +15,16 @@ class Word < ActiveRecord::Base
         WHERE user_id = #{user.id.to_s}) 
         AND (category_id = #{category.id.to_s})")
   }
+
+  class << self
+    def to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << column_names
+        all.each do |product|
+          csv << product.attributes.values_at(*column_names)
+        end
+      end
+    end
+  end
+
 end

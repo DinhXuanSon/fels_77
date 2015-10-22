@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :relationships, only: [:index]
   end
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy, :index]
   resources :words, only: [:index,:show]
-  resources :user_words, only: [:create, :destroy]
+  resources :user_words, only: [:create, :destroy, :index]
   resources :results, only: [:index, :show]
-  resources :lessons, only: [:show, :create, :update]
+  resources :lessons, only: [:show, :create, :update,:index]
   resources :categories, only: [:index,:show] do
     resources :lessons, only: [:show, :create, :update]
   end
